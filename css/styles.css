@@ -218,7 +218,7 @@ a:hover { text-decoration: underline; }
   letter-spacing: -0.025em;
   margin-bottom: 1.5rem;
 }
-.hero-name span { display: block; }
+.hero-name span { display: inline; }
 .name-last { color: var(--terracotta); }
 
 .hero-role {
