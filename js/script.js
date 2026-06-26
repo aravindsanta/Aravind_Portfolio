@@ -28,6 +28,23 @@ document.addEventListener('click', e => {
   }
 });
 
+// Light bulb dark-mode toggle
+const pullString = document.getElementById('pullString');
+const bulb       = document.getElementById('bulb');
+
+if (localStorage.getItem('darkMode') === 'on') {
+  bulb.classList.add('on');
+  document.body.classList.add('dark');
+  pullString.setAttribute('aria-pressed', 'true');
+}
+
+pullString.addEventListener('click', () => {
+  const isOn = bulb.classList.toggle('on');
+  document.body.classList.toggle('dark', isOn);
+  pullString.setAttribute('aria-pressed', String(isOn));
+  localStorage.setItem('darkMode', isOn ? 'on' : 'off');
+});
+
 // Scroll reveal — only runs if motion is allowed
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const revealTargets = [
